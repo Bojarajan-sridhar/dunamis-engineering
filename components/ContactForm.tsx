@@ -49,12 +49,12 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-white border border-slate-200 p-6 sm:p-8 md:p-10 rounded-2xl shadow-xl relative">
-      <div className="mb-6">
-        <h3 className="text-xl sm:text-2xl font-black text-[#0B1A30] font-sans uppercase tracking-tight">
+    <div className="bg-white border border-slate-200 p-4 sm:p-8 md:p-10 rounded-xl sm:rounded-2xl shadow-xl relative">
+      <div className="mb-5 sm:mb-6">
+        <h3 className="text-lg sm:text-2xl font-black text-[#0B1A30] font-sans uppercase tracking-tight">
           Request an Engineering Proposal
         </h3>
-        <p className="text-sm text-slate-600 mt-1">
+        <p className="text-xs sm:text-sm text-slate-600 mt-1">
           Submit your project specifications. Our structural estimators will respond promptly with a technical review.
         </p>
       </div>

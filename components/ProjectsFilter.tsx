@@ -35,7 +35,7 @@ export default function ProjectsFilter({ projects }: ProjectsFilterProps) {
           <button
             key={cat}
             onClick={() => setActiveCategory(cat)}
-            className={`px-4 py-2 rounded-md text-xs font-mono font-bold uppercase tracking-wider transition-all ${
+            className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-md text-[11px] sm:text-xs font-mono font-bold uppercase tracking-wider transition-all ${
               activeCategory === cat
                 ? "bg-brand-accent text-white shadow-md shadow-brand-accent/20"
                 : "bg-white text-slate-600 hover:text-slate-900 hover:bg-slate-50 border border-slate-200 shadow-sm"

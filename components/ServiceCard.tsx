@@ -38,12 +38,12 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       </div>
 
       {/* Content Area */}
-      <div className="p-6 flex flex-col justify-between flex-grow space-y-4">
+      <div className="p-4 sm:p-6 flex flex-col justify-between flex-grow space-y-3 sm:space-y-4">
         <div>
-          <h3 className="text-xl font-bold text-[#0B1A30] group-hover:text-brand-accent transition-colors font-sans tracking-tight">
+          <h3 className="text-lg sm:text-xl font-bold text-[#0B1A30] group-hover:text-brand-accent transition-colors font-sans tracking-tight">
             {service.title}
           </h3>
-          <p className="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-3">
+          <p className="mt-2 text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
             {service.shortDescription}
           </p>
         </div>

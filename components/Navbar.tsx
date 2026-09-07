@@ -36,12 +36,24 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-[#0C1E36]/95 backdrop-blur-md border-b border-[#162D4A] shadow-lg py-2.5"
-          : "bg-[#0C1E36]/90 backdrop-blur-sm border-b border-[#162D4A]/60 py-3.5"
+          : "bg-[#0C1E36]/90 backdrop-blur-sm border-b border-[#162D4A]/60 py-3 sm:py-3.5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -49,7 +61,7 @@ export default function Navbar() {
           {/* Logo - Premium White Insignia Badge on Executive Navy */}
           <Link
             href="/"
-            className="group flex items-center px-3.5 py-1.5 bg-white rounded-lg border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all hover:shadow-md hover:scale-[1.01]"
+            className="group flex items-center px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-white rounded-lg border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all hover:shadow-md hover:scale-[1.01]"
             aria-label="Dunamis Engineering - Return to Homepage"
           >
             <Image
@@ -57,7 +69,7 @@ export default function Navbar() {
               alt="Dunamis Engineering and Construction Pvt Ltd"
               width={220}
               height={42}
-              className="h-8 sm:h-8.5 w-auto object-contain"
+              className="h-7 sm:h-8.5 w-auto object-contain"
               priority
             />
           </Link>
@@ -122,9 +134,9 @@ export default function Navbar() {
 
       {/* Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[65px] bottom-0 bg-[#0C1E36]/98 backdrop-blur-xl border-t border-[#162D4A] flex flex-col justify-between px-6 py-8 overflow-y-auto animate-fadeIn shadow-2xl">
-          <div className="flex flex-col space-y-3">
-            <div className="mb-3 pb-3 border-b border-white/10">
+        <div className="lg:hidden fixed inset-x-0 top-[58px] sm:top-[65px] bottom-0 bg-[#0C1E36]/98 backdrop-blur-xl border-t border-[#162D4A] flex flex-col justify-between px-4 sm:px-6 py-5 sm:py-8 overflow-y-auto animate-fadeIn shadow-2xl z-50">
+          <div className="flex flex-col space-y-2.5 sm:space-y-3">
+            <div className="mb-2 pb-2.5 sm:mb-3 sm:pb-3 border-b border-white/10">
               <div className="inline-block px-3 py-1.5 bg-white rounded-lg shadow-sm">
                 <Image
                   src="/images/logo.png"

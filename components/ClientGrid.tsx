@@ -8,10 +8,10 @@ export default function ClientGrid() {
       {clientsData.map((client) => (
         <div
           key={client.id}
-          className="group relative flex items-center justify-center p-6 bg-white border border-slate-200 rounded-xl transition-all duration-300 hover:border-brand-accent hover:shadow-lg h-28 shadow-sm"
+          className="group relative flex items-center justify-center p-3 sm:p-6 bg-white border border-slate-200 rounded-xl transition-all duration-300 hover:border-brand-accent hover:shadow-lg h-20 sm:h-28 shadow-sm"
           title={client.name}
         >
-          <div className="relative w-full h-14 transition-all duration-300 filter grayscale contrast-110 opacity-75 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105">
+          <div className="relative w-full h-10 sm:h-14 transition-all duration-300 filter grayscale contrast-110 opacity-75 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105">
             <Image
               src={client.logo}
               alt={client.name}

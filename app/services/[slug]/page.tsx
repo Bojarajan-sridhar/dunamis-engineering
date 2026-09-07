@@ -53,12 +53,12 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
     .slice(0, 3);
 
   return (
-    <div className="pt-24 pb-20 space-y-20 bg-pearl text-slate-900">
+    <div className="pt-20 sm:pt-24 pb-16 sm:pb-20 space-y-16 sm:space-y-20 bg-pearl text-slate-900">
       {/* Hero Header */}
-      <section className="relative py-20 bg-white border-b border-slate-200 overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-white border-b border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Breadcrumb */}
-          <div className="flex items-center gap-2 text-xs font-mono text-slate-500 mb-6">
+          <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500 mb-6">
             <Link href="/" className="hover:text-slate-900 transition-colors">
               HOME
             </Link>
@@ -72,16 +72,16 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            <div className="lg:col-span-8 space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+            <div className="lg:col-span-8 space-y-3 sm:space-y-4">
               <div className="inline-flex items-center gap-2 font-mono text-xs text-brand-accent font-bold uppercase tracking-widest">
                 <span className="w-8 h-0.5 bg-brand-accent" />
                 <span>CAPABILITY SPECIFICATION #{service.number}</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-[#0B1A30] font-sans tracking-tight">
+              <h1 className="text-2xl min-[380px]:text-3xl sm:text-4xl lg:text-5xl font-black uppercase text-[#0B1A30] font-sans tracking-tight break-words">
                 {service.title}
               </h1>
-              <p className="text-lg text-slate-700 font-medium leading-relaxed max-w-2xl">
+              <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-2xl">
                 {service.shortDescription}
               </p>
             </div>
@@ -89,7 +89,7 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
             <div className="lg:col-span-4 flex lg:justify-end">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-4 bg-brand-accent hover:bg-brand-accent-hover text-white font-bold text-sm uppercase tracking-wider rounded-xl transition-all shadow-md"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 bg-brand-accent hover:bg-brand-accent-hover text-white font-bold text-xs sm:text-sm uppercase tracking-wider rounded-xl transition-all shadow-md text-center"
               >
                 <span>Request Technical Quote</span>
                 <ArrowRight className="w-4 h-4" />
@@ -101,11 +101,11 @@ export default function ServiceDetailPage({ params }: ServicePageProps) {
 
       {/* Main Content & Scope */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
           {/* Left Main Column */}
-          <div className="lg:col-span-8 space-y-12">
+          <div className="lg:col-span-8 space-y-8 sm:space-y-12">
             {/* Visual Hero Image */}
-            <div className="relative h-[360px] sm:h-[460px] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xl">
+            <div className="relative h-[250px] sm:h-[460px] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xl">
               <Image
                 src={service.image}
                 alt={service.title}

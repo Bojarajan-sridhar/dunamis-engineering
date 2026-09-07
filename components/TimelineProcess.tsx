@@ -72,12 +72,12 @@ export default function TimelineProcess() {
           return (
             <div
               key={step.number}
-              className="group relative flex flex-col bg-white border border-slate-200 p-6 rounded-xl transition-all duration-300 hover:border-brand-accent hover:shadow-xl hover:-translate-y-1 shadow-sm"
+              className="group relative flex flex-col bg-white border border-slate-200 p-4 sm:p-6 rounded-xl transition-all duration-300 hover:border-brand-accent hover:shadow-xl hover:-translate-y-1 shadow-sm"
             >
               {/* Step Number & Icon Header */}
               <div className="flex items-center justify-between lg:flex-col lg:items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-full bg-red-50 border-2 border-red-200 flex items-center justify-center text-brand-accent group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300 shadow-sm">
-                  <Icon className="w-5 h-5" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-red-50 border-2 border-red-200 flex items-center justify-center text-brand-accent group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300 shadow-sm">
+                  <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <span className="font-mono text-xs font-bold px-2.5 py-1 bg-slate-100 border border-slate-200 rounded text-slate-700 group-hover:text-brand-accent group-hover:bg-red-50 group-hover:border-red-200 transition-colors">
                   STEP {step.number}

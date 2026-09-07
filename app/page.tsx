@@ -20,16 +20,16 @@ export default function HomePage() {
   const featuredProjects = projectsData.slice(0, 6);
 
   return (
-    <div className="space-y-24 sm:space-y-32 bg-pearl text-slate-900">
+    <div className="space-y-16 sm:space-y-24 lg:space-y-32 bg-pearl text-slate-900">
       {/* 1. HERO SECTION */}
       <Hero />
 
       {/* 2. ABOUT SECTION */}
-      <section id="about-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <section id="about-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
           {/* Left Visual Banner with Technical Badge */}
           <div className="lg:col-span-6 relative">
-            <div className="relative h-[400px] sm:h-[480px] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xl">
+            <div className="relative h-[280px] sm:h-[420px] lg:h-[480px] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xl">
               <Image
                 src="/images/about/aboutus.jpg"
                 alt="Dunamis Engineering Fabrication Yard"
@@ -40,16 +40,16 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
 
               {/* Floating Engineering Badge */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 sm:p-5 bg-white/95 border border-slate-200 rounded-xl shadow-lg backdrop-blur-md">
-                <div className="flex items-center gap-3.5">
-                  <div className="w-11 h-11 rounded-lg bg-red-50 border border-red-200 flex items-center justify-center text-brand-accent shrink-0">
-                    <Factory className="w-5 h-5" />
+              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 p-3 sm:p-5 bg-white/95 border border-slate-200 rounded-xl shadow-lg backdrop-blur-md">
+                <div className="flex items-center gap-3 sm:gap-3.5">
+                  <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-lg bg-red-50 border border-red-200 flex items-center justify-center text-brand-accent shrink-0">
+                    <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <span className="font-mono text-xs font-bold text-brand-accent uppercase tracking-wider block">
+                    <span className="font-mono text-[11px] sm:text-xs font-bold text-brand-accent uppercase tracking-wider block">
                       KILOY VILLAGE INDUSTRIAL YARD
                     </span>
-                    <span className="text-xs text-slate-600 font-sans font-medium">
+                    <span className="text-[11px] sm:text-xs text-slate-600 font-sans font-medium block leading-tight">
                       70,000 Sq.Ft. Open Yard + 5,000 Sq.Ft. Covered Workshop
                     </span>
                   </div>
@@ -62,13 +62,13 @@ export default function HomePage() {
           </div>
 
           {/* Right Text Content */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-5 sm:space-y-6">
             <div className="inline-flex items-center gap-2 font-mono text-xs text-brand-accent uppercase tracking-widest font-bold">
               <span className="w-6 h-0.5 bg-brand-accent" />
               <span>WHO WE ARE</span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase font-sans leading-[1.08]">
+            <h2 className="text-2xl min-[380px]:text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight uppercase font-sans leading-[1.08] break-words">
               <span className="text-[#0B1A30]">BUILT FOR PRECISION.</span> <br />
               <span className="text-brand-accent">ENGINEERED FOR PERFORMANCE.</span>
             </h2>
@@ -82,7 +82,7 @@ export default function HomePage() {
             </p>
 
             {/* Highlights List */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 pt-2">
               {[
                 "Advanced PEB Framing & Erection",
                 "Certified Welding & Ultrasonic QC",
@@ -96,17 +96,17 @@ export default function HomePage() {
               ))}
             </div>
 
-            <div className="pt-4 flex flex-wrap items-center gap-4 sm:gap-6">
+            <div className="pt-3 sm:pt-4 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brand-accent hover:text-slate-900 group border-b-2 border-brand-accent pb-1 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-brand-accent hover:text-slate-900 group border-b-2 border-brand-accent pb-1 transition-colors self-start"
               >
                 <span>Learn More About Dunamis</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <Link
                 href="#pillars-section"
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-red-50 hover:text-brand-accent border border-slate-200 text-xs font-mono font-bold text-slate-700 transition-colors shadow-sm"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-red-50 hover:text-brand-accent border border-slate-200 text-xs font-mono font-bold text-slate-700 transition-colors shadow-sm self-start"
               >
                 <Users className="w-3.5 h-3.5 text-brand-accent" />
                 <span>Meet The Pillars</span>
@@ -132,10 +132,10 @@ export default function HomePage() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-8 sm:mt-12 text-center">
           <Link
             href="/services"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-slate-300 hover:border-brand-accent text-slate-900 font-bold text-sm uppercase tracking-wider rounded-lg transition-all group hover:bg-slate-50 shadow-sm"
+            className="inline-flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 bg-white border border-slate-300 hover:border-brand-accent text-slate-900 font-bold text-xs sm:text-sm uppercase tracking-wider rounded-lg transition-all group hover:bg-slate-50 shadow-sm"
           >
             <span>Explore All 10 Capabilities</span>
             <ArrowRight className="w-4 h-4 text-brand-accent transition-transform group-hover:translate-x-1" />
@@ -166,7 +166,7 @@ export default function HomePage() {
       </section>
 
       {/* 5. PROCESS TIMELINE */}
-      <section className="py-20 bg-white border-y border-slate-200/80">
+      <section className="py-14 sm:py-20 bg-white border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="HOW WE DELIVER"
@@ -192,7 +192,7 @@ export default function HomePage() {
       <DunamisPillars />
 
       {/* 8. CLIENT TRUST */}
-      <section className="py-16 bg-white border-y border-slate-200/80">
+      <section className="py-12 sm:py-16 bg-white border-y border-slate-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             tag="PARTNERSHIPS"

@@ -17,20 +17,20 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="pt-24 pb-20 space-y-24 bg-pearl text-slate-900">
+    <div className="pt-20 sm:pt-24 pb-16 sm:pb-20 space-y-16 sm:space-y-24 bg-pearl text-slate-900">
       {/* Page Header */}
-      <section className="relative py-20 bg-white border-b border-slate-200 overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-white border-b border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
+          <div className="max-w-3xl space-y-3 sm:space-y-4">
             <div className="inline-flex items-center gap-2 font-mono text-xs text-brand-accent uppercase tracking-widest font-bold">
               <span className="w-6 h-0.5 bg-brand-accent" />
               <span>ABOUT DUNAMIS</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase font-sans tracking-tight leading-[1.08]">
+            <h1 className="text-2xl min-[380px]:text-3xl sm:text-5xl lg:text-6xl font-black uppercase font-sans tracking-tight leading-[1.08] break-words">
               <span className="text-[#0B1A30]">BUILT FOR PRECISION.</span> <br />
               <span className="text-brand-accent">ENGINEERED FOR PERFORMANCE.</span>
             </h1>
-            <p className="text-lg text-slate-700 font-medium leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-2xl">
               {companyData.subheadline}
             </p>
           </div>
@@ -39,26 +39,26 @@ export default function AboutPage() {
 
       {/* Main Profile & Infrastructure Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 space-y-6">
-            <h2 className="text-3xl sm:text-4xl font-black uppercase text-[#0B1A30] font-sans tracking-tight">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div className="lg:col-span-6 space-y-5 sm:space-y-6">
+            <h2 className="text-2xl sm:text-4xl font-black uppercase text-[#0B1A30] font-sans tracking-tight break-words">
               Our Journey &amp; Engineering Credo
             </h2>
-            <div className="space-y-4 text-base text-slate-600 leading-relaxed">
+            <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
               {companyData.aboutText.map((para, i) => (
                 <p key={i}>{para}</p>
               ))}
             </div>
 
-            <div className="p-6 bg-white border border-slate-200/90 rounded-xl space-y-3 shadow-sm">
+            <div className="p-4 sm:p-6 bg-white border border-slate-200/90 rounded-xl space-y-2.5 sm:space-y-3 shadow-sm">
               <h3 className="text-xs font-mono uppercase tracking-wider text-brand-accent font-bold">
                 Registered Office &amp; Works
               </h3>
-              <p className="text-sm text-slate-700">
+              <p className="text-xs sm:text-sm text-slate-700">
                 <strong className="text-slate-900 font-semibold">Registered Office:</strong>{" "}
                 {companyData.addresses.registeredOffice.full}
               </p>
-              <p className="text-sm text-slate-700">
+              <p className="text-xs sm:text-sm text-slate-700">
                 <strong className="text-slate-900 font-semibold">Fabrication Unit:</strong>{" "}
                 {companyData.addresses.fabricationUnit.full}
               </p>
@@ -66,7 +66,7 @@ export default function AboutPage() {
           </div>
 
           <div className="lg:col-span-6">
-            <div className="relative h-[440px] sm:h-[500px] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xl">
+            <div className="relative h-[280px] sm:h-[440px] lg:h-[500px] w-full rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 shadow-xl">
               <Image
                 src="/images/about/aboutus.jpg"
                 alt="Dunamis Construction Team and Site"
@@ -75,11 +75,11 @@ export default function AboutPage() {
                 className="object-cover filter contrast-105 brightness-100"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-white/95 border border-slate-200 rounded-xl shadow-lg backdrop-blur-md">
+              <div className="absolute bottom-3 sm:bottom-6 left-3 sm:left-6 right-3 sm:right-6 p-3 sm:p-4 bg-white/95 border border-slate-200 rounded-xl shadow-lg backdrop-blur-md">
                 <span className="text-xs font-mono text-brand-accent font-bold uppercase block">
                   INDUSTRIAL PRECISION
                 </span>
-                <span className="text-sm text-slate-700 font-medium">
+                <span className="text-xs sm:text-sm text-slate-700 font-medium">
                   Executing heavy PEB &amp; civil projects across Tamil Nadu.
                 </span>
               </div>

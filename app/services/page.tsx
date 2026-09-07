@@ -27,20 +27,20 @@ const ancillaryCapabilities = [
 
 export default function ServicesPage() {
   return (
-    <div className="pt-24 pb-20 space-y-24 bg-pearl text-slate-900">
+    <div className="pt-20 sm:pt-24 pb-16 sm:pb-20 space-y-16 sm:space-y-24 bg-pearl text-slate-900">
       {/* Header */}
-      <section className="relative py-20 bg-white border-b border-slate-200 overflow-hidden">
+      <section className="relative py-12 sm:py-20 bg-white border-b border-slate-200 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="max-w-3xl space-y-4">
+          <div className="max-w-3xl space-y-3 sm:space-y-4">
             <div className="inline-flex items-center gap-2 font-mono text-xs text-brand-accent font-bold uppercase tracking-widest">
               <span className="w-6 h-0.5 bg-brand-accent" />
               <span>CAPABILITIES &amp; SPECIALIZATIONS</span>
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black uppercase font-sans tracking-tight leading-[1.08]">
+            <h1 className="text-2xl min-[380px]:text-3xl sm:text-5xl lg:text-6xl font-black uppercase font-sans tracking-tight leading-[1.08] break-words">
               <span className="text-[#0B1A30]">INDUSTRIAL ENGINEERING</span> <br />
               <span className="text-brand-accent">CAPABILITIES.</span>
             </h1>
-            <p className="text-lg text-slate-700 font-medium leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-2xl">
               From heavy structural fabrication in our 70,000 sq.ft. yard to on-site PEB erection and turnkey MEP installations, Dunamis delivers complete engineering solutions.
             </p>
           </div>
@@ -55,7 +55,7 @@ export default function ServicesPage() {
           description="Click any capability to inspect detailed technical specifications, project scopes, and engineering deliverables."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {servicesData.map((service) => (
             <ServiceCard key={service.id} service={service} />
           ))}
@@ -64,7 +64,7 @@ export default function ServicesPage() {
 
       {/* Ancillary Industrial Capabilities */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white border border-slate-200/90 rounded-2xl p-8 sm:p-12 space-y-8 shadow-sm">
+        <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-8 md:p-12 space-y-6 sm:space-y-8 shadow-sm">
           <div className="max-w-2xl space-y-3">
             <div className="flex items-center gap-2 font-mono text-xs text-brand-accent font-bold uppercase tracking-wider">
               <Wrench className="w-4 h-4" />

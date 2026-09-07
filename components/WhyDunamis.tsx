@@ -55,10 +55,10 @@ export default function WhyDunamis() {
         return (
           <div
             key={item.title}
-            className="group relative bg-white border border-slate-200 p-8 rounded-xl transition-all duration-300 hover:border-brand-accent hover:shadow-xl hover:-translate-y-1 shadow-sm"
+            className="group relative bg-white border border-slate-200 p-5 sm:p-8 rounded-xl transition-all duration-300 hover:border-brand-accent hover:shadow-xl hover:-translate-y-1 shadow-sm"
           >
-            <div className="w-12 h-12 rounded-lg bg-red-50 border border-red-200 flex items-center justify-center text-brand-accent mb-6 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300 shadow-sm">
-              <Icon className="w-6 h-6" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-red-50 border border-red-200 flex items-center justify-center text-brand-accent mb-4 sm:mb-6 group-hover:border-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300 shadow-sm">
+              <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
             </div>
 
             <h3 className="text-xl font-bold text-[#0B1A30] uppercase font-sans tracking-tight mb-3 group-hover:text-brand-accent transition-colors">
