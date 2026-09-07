@@ -1,11 +1,10 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { Menu, X, ArrowRight, Phone, Mail } from "lucide-react";
-import { companyData } from "@/data/company";
+import { Menu, X, ArrowRight } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -21,6 +20,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,20 +36,26 @@ export default function Navbar() {
     setMobileMenuOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when mobile menu is open
+  // Close mobile menu when clicking outside header
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) {
+        setMobileMenuOpen(false);
+      }
+    };
     if (mobileMenuOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+      document.addEventListener("mousedown", handleClickOutside);
+      document.addEventListener("touchstart", handleClickOutside);
     }
     return () => {
-      document.body.style.overflow = "";
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
     };
   }, [mobileMenuOpen]);
 
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-[#0C1E36]/95 backdrop-blur-md border-b border-[#162D4A] shadow-lg py-2.5"
@@ -61,6 +67,7 @@ export default function Navbar() {
           {/* Logo - Premium White Insignia Badge on Executive Navy */}
           <Link
             href="/"
+            onClick={() => setMobileMenuOpen(false)}
             className="group flex items-center px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-white rounded-lg border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all hover:shadow-md hover:scale-[1.01]"
             aria-label="Dunamis Engineering - Return to Homepage"
           >
@@ -107,99 +114,65 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Controls: Quote Button & Hamburger Toggle */}
           <div className="flex lg:hidden items-center gap-2">
             <Link
               href="/contact"
-              className="px-3 py-1.5 text-xs font-bold uppercase bg-brand-accent text-white rounded tracking-wider mr-1 shadow-sm"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-1.5 text-xs font-bold uppercase bg-brand-accent text-white rounded tracking-wider shadow-sm transition-transform active:scale-95"
             >
               Quote
             </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-200 hover:text-white hover:bg-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent"
+              className="p-2 text-slate-200 hover:text-white hover:bg-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6" />
+                <X className="w-6 h-6 text-white" />
               ) : (
-                <Menu className="w-6 h-6" />
+                <Menu className="w-6 h-6 text-slate-200" />
               )}
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[58px] sm:top-[65px] bottom-0 bg-[#0C1E36]/98 backdrop-blur-xl border-t border-[#162D4A] flex flex-col justify-between px-4 sm:px-6 py-5 sm:py-8 overflow-y-auto animate-fadeIn shadow-2xl z-50">
-          <div className="flex flex-col space-y-2.5 sm:space-y-3">
-            <div className="mb-2 pb-2.5 sm:mb-3 sm:pb-3 border-b border-white/10">
-              <div className="inline-block px-3 py-1.5 bg-white rounded-lg shadow-sm">
-                <Image
-                  src="/images/logo.png"
-                  alt="Dunamis Engineering and Construction Pvt Ltd"
-                  width={190}
-                  height={36}
-                  className="h-7 w-auto object-contain"
-                />
-              </div>
-            </div>
-            <span className="text-[11px] font-mono uppercase tracking-widest text-slate-400 mb-1">
-              Navigation Menu
-            </span>
-            {navLinks.map((link) => {
-              const isActive =
-                pathname === link.href ||
-                (link.href !== "/" && pathname.startsWith(link.href));
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`flex items-center justify-between py-3 px-4 rounded-lg text-base font-semibold tracking-wide border-b border-white/10 transition-colors ${
-                    isActive
-                      ? "text-white bg-white/15 border-brand-accent"
-                      : "text-slate-200 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  <span>{link.name}</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400" />
-                </Link>
-              );
-            })}
-          </div>
-
-          {/* Mobile Contact Quick Actions */}
-          <div className="mt-8 pt-6 border-t border-white/15 flex flex-col gap-3">
-            <Link
-              href="/contact"
-              className="w-full flex items-center justify-center gap-2 py-3 bg-brand-accent hover:bg-brand-accent-hover text-white font-bold uppercase tracking-wider rounded-lg text-sm shadow-lg shadow-brand-accent/30"
-            >
-              <span>Request Engineering Quote</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-
-            <div className="grid grid-cols-2 gap-3 text-xs text-slate-300 font-mono">
-              <a
-                href={`tel:${companyData.contact.primaryPhone}`}
-                className="flex items-center justify-center gap-2 p-3 bg-white/5 border border-white/10 rounded-lg hover:border-brand-accent transition-colors"
+      {/* Mobile Navigation Dropdown Menu */}
+      <div
+        className={`lg:hidden absolute top-full left-0 right-0 w-full bg-[#0C1E36] border-b border-[#162D4A] shadow-2xl transition-all duration-300 ease-in-out origin-top ${
+          mobileMenuOpen
+            ? "opacity-100 visible max-h-[420px] pointer-events-auto"
+            : "opacity-0 invisible max-h-0 pointer-events-none overflow-hidden"
+        }`}
+      >
+        <nav className="flex flex-col py-2 px-4 sm:px-6">
+          {navLinks.map((link) => {
+            const isActive =
+              pathname === link.href ||
+              (link.href !== "/" && pathname.startsWith(link.href));
+            return (
+              <Link
+                key={link.name}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`flex items-center justify-between py-2.5 px-2 text-base tracking-wide transition-colors border-b border-white/5 last:border-b-0 bg-transparent ${
+                  isActive
+                    ? "text-brand-accent font-bold"
+                    : "text-slate-200 hover:text-brand-accent font-medium"
+                }`}
               >
-                <Phone className="w-3.5 h-3.5 text-brand-accent" />
-                <span>Call Us</span>
-              </a>
-              <a
-                href={`mailto:${companyData.contact.email}`}
-                className="flex items-center justify-center gap-2 p-3 bg-white/5 border border-white/10 rounded-lg hover:border-brand-accent transition-colors"
-              >
-                <Mail className="w-3.5 h-3.5 text-brand-accent" />
-                <span>Email Us</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      )}
+                <span>{link.name}</span>
+                {isActive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-accent" />
+                )}
+              </Link>
+            );
+          })}
+        </nav>
+      </div>
     </header>
   );
 }
