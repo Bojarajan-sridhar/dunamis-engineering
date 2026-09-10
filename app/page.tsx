@@ -24,6 +24,67 @@ export default function HomePage() {
       {/* 1. HERO SECTION */}
       <Hero />
 
+      {/* FACTUAL METRICS STRIP - Architectural Transition Band */}
+      <section className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 sm:-mt-10 lg:-mt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 p-4 sm:p-6 bg-white border border-slate-200 rounded-2xl shadow-xl">
+          <div className="flex items-start gap-2.5 sm:gap-3">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-brand-accent shrink-0 mt-0.5 shadow-sm">
+              <Factory className="w-4 h-4 sm:w-5 sm:h-5" />
+            </div>
+            <div>
+              <span className="block text-lg sm:text-xl lg:text-2xl font-black text-slate-900 font-mono">
+                70,000+
+              </span>
+              <span className="text-[10px] sm:text-xs text-slate-600 font-sans tracking-wide font-medium block leading-tight mt-0.5">
+                Sq. Ft. Heavy Open Yard
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2.5 sm:gap-3">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-brand-accent shrink-0 mt-0.5 shadow-sm">
+              <Ruler className="w-4 h-4 sm:w-5 sm:h-5" />
+            </div>
+            <div>
+              <span className="block text-lg sm:text-xl lg:text-2xl font-black text-slate-900 font-mono">
+                5,000+
+              </span>
+              <span className="text-[10px] sm:text-xs text-slate-600 font-sans tracking-wide font-medium block leading-tight mt-0.5">
+                Sq. Ft. Covered Shop
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2.5 sm:gap-3">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-brand-accent shrink-0 mt-0.5 shadow-sm">
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5" />
+            </div>
+            <div>
+              <span className="block text-lg sm:text-xl lg:text-2xl font-black text-slate-900 font-mono">
+                75+
+              </span>
+              <span className="text-[10px] sm:text-xs text-slate-600 font-sans tracking-wide font-medium block leading-tight mt-0.5">
+                Completed Projects
+              </span>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2.5 sm:gap-3">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-red-50 border border-red-200 flex items-center justify-center text-brand-accent shrink-0 mt-0.5 font-bold shadow-sm">
+              ✓
+            </div>
+            <div>
+              <span className="block text-lg sm:text-xl lg:text-2xl font-black text-slate-900 font-mono">
+                100%
+              </span>
+              <span className="text-[10px] sm:text-xs text-slate-600 font-sans tracking-wide font-medium block leading-tight mt-0.5">
+                Safety &amp; QA Compliance
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. ABOUT SECTION */}
       <section id="about-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-2 sm:pt-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">

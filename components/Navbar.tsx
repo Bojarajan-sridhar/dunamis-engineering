@@ -58,17 +58,17 @@ export default function Navbar() {
       ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-[#0C1E36]/95 backdrop-blur-md border-b border-[#162D4A] shadow-lg py-2.5"
-          : "bg-[#0C1E36]/90 backdrop-blur-sm border-b border-[#162D4A]/60 py-3 sm:py-3.5"
+          ? "bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-md py-2.5"
+          : "bg-white/95 backdrop-blur-sm border-b border-slate-200/80 py-3 sm:py-3.5"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo - Premium White Insignia Badge on Executive Navy */}
+          {/* Logo - Displayed naturally on pure white background */}
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="group flex items-center px-2.5 sm:px-3.5 py-1 sm:py-1.5 bg-white rounded-lg border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-brand-accent transition-all hover:shadow-md hover:scale-[1.01]"
+            className="flex items-center focus:outline-none transition-transform hover:scale-[1.01]"
             aria-label="Dunamis Engineering - Return to Homepage"
           >
             <Image
@@ -76,7 +76,7 @@ export default function Navbar() {
               alt="Dunamis Engineering and Construction Pvt Ltd"
               width={220}
               height={42}
-              className="h-7 sm:h-8.5 w-auto object-contain"
+              className="h-8 sm:h-9 w-auto object-contain"
               priority
             />
           </Link>
@@ -91,13 +91,16 @@ export default function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`px-3.5 py-2 text-sm tracking-wide transition-all rounded-md ${
+                  className={`relative px-3.5 py-2 text-sm tracking-wide transition-all font-semibold ${
                     isActive
-                      ? "text-white font-bold bg-white/15 border-b-2 border-brand-accent shadow-sm"
-                      : "text-slate-200 hover:text-white hover:bg-white/10 font-medium"
+                      ? "text-brand-accent font-bold"
+                      : "text-slate-800 hover:text-brand-accent"
                   }`}
                 >
-                  {link.name}
+                  <span>{link.name}</span>
+                  {isActive && (
+                    <span className="absolute bottom-0 left-3.5 right-3.5 h-0.5 bg-brand-accent rounded-full" />
+                  )}
                 </Link>
               );
             })}
@@ -107,7 +110,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-accent hover:bg-brand-accent-hover text-white font-bold text-sm tracking-wide rounded-md uppercase transition-all duration-200 shadow-md shadow-brand-accent/25 hover:shadow-lg hover:shadow-brand-accent/30 group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-accent hover:bg-brand-accent-hover text-white font-bold text-xs uppercase tracking-wider rounded-lg transition-all duration-200 shadow-sm shadow-brand-accent/25 hover:shadow-md hover:shadow-brand-accent/30 group"
             >
               <span>Let&apos;s Talk</span>
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -126,14 +129,14 @@ export default function Navbar() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-200 hover:text-white hover:bg-white/10 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
+              className="p-2 text-slate-800 hover:text-brand-accent hover:bg-slate-100 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-accent transition-colors"
               aria-expanded={mobileMenuOpen}
               aria-label="Toggle navigation menu"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-white" />
+                <X className="w-6 h-6 text-slate-900" />
               ) : (
-                <Menu className="w-6 h-6 text-slate-200" />
+                <Menu className="w-6 h-6 text-slate-800" />
               )}
             </button>
           </div>
@@ -142,13 +145,13 @@ export default function Navbar() {
 
       {/* Mobile Navigation Dropdown Menu */}
       <div
-        className={`lg:hidden absolute top-full left-0 right-0 w-full bg-[#0C1E36] border-b border-[#162D4A] shadow-2xl transition-all duration-300 ease-in-out origin-top ${
+        className={`lg:hidden absolute top-full left-0 right-0 w-full bg-white border-b border-slate-200 shadow-xl transition-all duration-300 ease-in-out origin-top ${
           mobileMenuOpen
             ? "opacity-100 visible max-h-[420px] pointer-events-auto"
             : "opacity-0 invisible max-h-0 pointer-events-none overflow-hidden"
         }`}
       >
-        <nav className="flex flex-col py-2 px-4 sm:px-6">
+        <nav className="flex flex-col py-2 px-4 sm:px-6 divide-y divide-slate-100">
           {navLinks.map((link) => {
             const isActive =
               pathname === link.href ||
@@ -158,10 +161,10 @@ export default function Navbar() {
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`flex items-center justify-between py-2.5 px-2 text-base tracking-wide transition-colors border-b border-white/5 last:border-b-0 bg-transparent ${
+                className={`flex items-center justify-between py-2.5 px-2 text-base tracking-wide transition-colors ${
                   isActive
-                    ? "text-brand-accent font-bold"
-                    : "text-slate-200 hover:text-brand-accent font-medium"
+                    ? "text-brand-accent font-bold bg-red-50/50"
+                    : "text-slate-800 hover:text-brand-accent hover:bg-slate-50 font-medium"
                 }`}
               >
                 <span>{link.name}</span>
